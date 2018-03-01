@@ -6,50 +6,69 @@
     <title>Foodie List exercise </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lily+Script+One|Raleway" rel="stylesheet">
-
-
-    <!-- Bootstrap CSS -->
+   <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css" />
 
     <!-- Local CSS -->
-    <link rel="stylesheet" type="text/css" media="screen" href="sass/main.scss" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+     
+    <!-- Google Fonts -->
+     <link href="https://fonts.googleapis.com/css?family=Lily+Script+One|Raleway" rel="stylesheet">
     
 </head>
 <body>
     <header class="nav-wrapper">
-        <nav class="navbar fixed-top navbar-light bg-light">
+        <nav class="navbar fixed-top">
             <a class="navbar-brand" href="#">Foodies</a>
         </nav>
+        <h1>Favorite eateries in a cities you visited</h1>
     </header>
 
-    <main>
-        <section class="main-container">
+    <main class="main-container">
 
-            <!-- Dropdown menu options for cities -->
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select a city
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </div> 
-            <!-- end dropdown menu options -->
+        <section class="input-area">
+
+            <div class="dropdown"> <!-- Dropdown menu options for cities -->
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select a city
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div> <!-- end dropdown menu options -->
+            
         </section>
+
+
+        <section class="container" id="cities"> <!-- Restaurant grid -->
+            <div class = "row"> <!-- row start -->
+
+                <div class="card col-4">
+                    <div class="card-header"><b>City:</b> Bigoudine</div> 
+                    <div class="card-body">
+                       <h5 class="card-title">Restaurant: Weissant LLC</h5>
+                        <p><b>Rating:</b> 6.18</p>
+                        <p class="card-text">Trip _purpose from cities.json will go in here to populate this care. Eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec.</p>
+                        <small class="text-muted">Date visited: 11/29/2015</small>
+                    </div>
+                 </div>
+
+   
+             </div> <!--row end -->
+
+        </section> <!-- Restaurant grid end -->
+    
     </main>
 
-    
-<div id="cities"></div>
+
 
 
 <!-- Bootstrap scripts -->
