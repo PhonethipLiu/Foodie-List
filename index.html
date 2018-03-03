@@ -29,29 +29,31 @@
         <section class="input-area">
 
             <div class="dropdown"> <!-- Dropdown menu options for cities -->
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onchange="selectCity(this.value)">
                     Select a city
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#" value="Itupeva" >Itupeva</a>
+                        <a class="dropdown-item" href="#" value="Changsheng" >Changsheng</a>
+                        <a class="dropdown-item" href="#" value="Mingelchaur" >Mingelchaur</a>
+                        <a class="dropdown-item" href="#" value="Bigoudine" >Bigoudine</a>
+                        <a class="dropdown-item" href="#" value="La Soledad" >La Soledad</a>
+                        <a class="dropdown-item" href="#" value="Shengshan" >Shengshan</a>
+                        <a class="dropdown-item" href="#" value="Nashville" >Nashville</a>
+                        <a class="dropdown-item" href="#" value="Rabat" >Rabat</a>
+                        <a class="dropdown-item" href="#" value="Hamilton" >Hamilton</a>
+                        <a class="dropdown-item" href="#" value="El Llano" >El Llano</a>
+                        <a class="dropdown-item" href="#" value="Longwu" >Longwu</a>
                     </div>
                 </div> <!-- end dropdown menu options -->
             
         </section>
 
 
-        <section class="container" id="cities"> <!-- Restaurant grid -->
-            <div class = "row"> <!-- row start -->
+        <section class="container" id="restaurants"> <!-- Restaurant grid -->
+            <div class = "row" id="restaurant-cards"> <!-- row start -->
 
-                <div class="card col-4">
+                <!-- <div class="card col-4">
                     <div class="card-header"><b>City:</b> Bigoudine</div> 
                     <div class="card-body">
                        <h5 class="card-title">Restaurant: Weissant LLC</h5>
@@ -59,7 +61,7 @@
                         <p class="card-text">Trip _purpose from cities.json will go in here to populate this care. Eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec.</p>
                         <small class="text-muted">Date visited: 11/29/2015</small>
                     </div>
-                 </div>
+                 </div> -->
 
    
              </div> <!--row end -->

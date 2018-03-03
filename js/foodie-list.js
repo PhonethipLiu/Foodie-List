@@ -1,40 +1,43 @@
 "use strict";
 
-// Your job is to build a a web page where a user can see all the restaurants they have been to and filter by city. They can also add additional restaurants.
+console.log("foodie-list.js is working");
 
-// The two JSON representations above should be in two files: `restaurants.json`, and `cities.json` (see below). Use Javascript's `XMLHttpRequest()` method with Promises to read the data from those files, and then build HTML representations of the data.
+// make XHR request
 
-// > Contents of `restaurants.json` file
-// > Contents of `cities.json` file
+var restaurant = [];
+let card = {};
 
-console.log("foodie-list.js working");
-
-
-
-let dataRequest = new XMLHttpRequest();
-dataRequest.addEventListener("load", dataRequestComplete);
-dataRequest.addEventListener("error", dataRequestFailed);
-
-function dataRequestComplete(event) {
-    console.log("loading restaurants json");
-        let restaurantsData = JSON.parse(event.target.responseText);
-        console.log("restaurants Data", restaurantsData);
-        showData(restaurantsData);
+function loadRestData (data){
+    // let keys = Object.keys();
+    // keys.forEach( (data) => {
+    //     console.log("what are the keys", keys);
+    //     restaurant.push(data);
+    // });
+    return restaurant;
 }
+console.log("restaurant data filled:", restaurant);
 
-//MVP: 1) When the user first visits the page, all restaurants should be listed in order of their rating(ratings are from 1 to 10). The restaurants are displayed from highest rated to lowest rated.
+//get data
+card.getRestaurant = () => {
+    return restaurant;
+};
 
-function showData(cities){
-    let restaurantsDiv = document.getElementById("cities");
-    let restaurantsData = "";
+// load data xhr
+card.loadRestaurant = () => {
+    return new Promise ( (resolve, reject) => {
+        let xhr = new XMLHttpRequest();
 
-    for(let i = 0; i < restaurants.length; i++){
-        let restaurantsItem = restaurants[item];
-        restaurantsData += `<h3>${restaurantsItem.restaurant} + " " + ${restaurantsItem.my_rating}</h3>`;
+        xhr.addEventListener("load", function(){
+            let data = JSON.parse(this.responseText);
+            console.log("data is:", data);
+            // loadRestData(data);
+            resolve(data);
+        });
+        xhr.open("GET", "restaurants.json");
+        xhr.send();
+    });
+};
 
-    }
-}
+console.log("what is card", restaurant);
 
-
-
-
+module.exports = { card };
