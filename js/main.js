@@ -2,70 +2,105 @@
 
 console.log("main.js for foodie is working");
 
-// let data = require("./foodie-list");
-
-var restaurants = {}; //restaurant.json data goes in this array
-var cities = {};//cities.json data goes in this array
-var restCard = document.getElementById("restaurant-cards"); // want the dom restaurant cards to appear here?
+var dataRest = require("./foodie-list");
+var dataCity = require("./cities");
 
 
-// function to get data XHR 
 
-function get(url){
-    return new Promise ( (resolve, reject) => {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", url);
-
-        xhr.onload = function() {
-            if (xhr.status == 200){
-                resolve(JSON.parse(xhr.response));
-            } else {
-                reject(Error(xhr.statusText));
-            }
-        };
-        // handles network errors
-        xhr.onerror = function(){
-            reject(Error(xhr.statusText));
-        };
-
-        //make request
-        xhr.send();
-    });    
+function restCards(data){
+    return`
+    <div class="card col-4" id="rest-${data.id}>
+        <div class="card-header"><b>City:</b> ${data.city_id}</div>
+        <div class="card-body">
+        <h5 class="card-title">${data.restaurant}</h5>
+        <p><b>Rating:</b> ${data.my_rating}</p>
+        <p class="card-text"> Restaurants.trip_purpose</p> 
+        <small class="text-muted">Date visited: ${data.date_visited}</small> </div>
+    </div>`;
 }
 
-//apply the function to the variable
-restaurants = get("restaurants.json")
-    .then( (restaurants) => {
-        console.log( "this is what I get when I run the request:", restaurants);
-        populateCard(restaurants);
-        // cardGrid(restaurants);
-    }, function(error){
-        console.log("Doh! Failed!", error);
+
+// function to display data XHR 
+function displayRestaurants() {
+
+    dataRest.restaurants.then ( ()=>{
+
+        for(let i = 0 ; i <dataRest.length; i++){
+        
+            document.getElementById("restaurant-cards").innerHTML = `
+            <h1 class="rest-list">Restaurants I have visited(${dataRest.length})</h1>
+            ${dataRest.map(restCards).join('')}`;
+        } 
     });
+}
 
 
-    function populateCard (restaurants) {
 
-        for(let i = 0 ; i <restaurants.length; i++){
 
-            let Cards = "",
-                wrapper =  `<div class="card col-4" id="rest-${restaurants.id}">`,
-                header =  `<div class="card-header"><b>City:</b> ${restaurants.city_id}</div>`,
-                title = `<div class="card-body"><h5 class="card-title">${restaurants.restaurant}</h5>`,
-                rating = `<p><b>Rating:</b> ${restaurants.my_rating}</p>`,
-                description = `<p class="card-text">Restaurants.trip_purpose</p>`,
-                footer = `<small class="text-muted">Date visited: ${restaurants.date_visited}</small> </div>`;
+
+
+// restData.addEventListener("load", restDataLoad);
+// restData.addEventListener("error", restDataError);
+// function getdata(){
+//     return new Promise ( (resolve, reject) => {
+//         var restxhr = new XMLHttpRequest();
+//         restxhr.open("GET", "restaurants.json");
+
+//         restxhr.onload = function() {
+//             if (restxhr.status == 200){
+//                 restaurants = JSON.parse(this.responseText);
+//                 resolve(restaurants);
+//                 console.log(restaurants);
+//             } else {
+//                 reject(Error(restxhr.statusText));
+//             }
+//         };
+//         // handles network errors
+//         restxhr.onerror = function(){
+//             reject(Error(restxhr.statusText));
+//         };
+
+//         //make request
+//         restxhr.send();
+//     });    
+// }
+
+// getdata();
+// // apply callbacks 
+
+// function showRestData () {
+   
+//     getdata().then( (restaurants) => {
+//         console.log( "this is what I get when I run the restaurants request:", restaurants);
+//         for(let i = 0 ; i <restaurants.length; i++){
+//             restCard.innerHTML = restaurants[i].restaurant;
+
+//             console.log("what is in restaurants?", restaurants);
+    
+   
+//     }); reject( (error) => {
+//         console.log("Doh! Failed!", error);
+//     });
+
+
+            // let Cards = "",
+            //     wrapper =  `<div class="card col-4" id="rest-${restaurants.id}">`,
+            //     header =  `<div class="card-header"><b>City:</b> ${restaurants.city_id}</div>`,
+            //     title = `<div class="card-body"><h5 class="card-title">${restaurants.restaurant}</h5>`,
+            //     rating = `<p><b>Rating:</b> ${restaurants.my_rating}</p>`,
+            //     description = `<p class="card-text">Restaurants.trip_purpose</p>`,
+            //     footer = `<small class="text-muted">Date visited: ${restaurants.date_visited}</small> </div>`;
                 
             // for(let i = 0; i < data.length; i++){
                 
             
-                restCard.innerHTML =  `${wrapper + header + title + rating+ description + footer}</div>`;
+                // restCard.innerHTML =  `${wrapper + header + title + rating+ description + footer}</div>`;
                 
-            }    
+            // }    
             
             // }
         // return restaurant;
-    } 
+    // } 
 //     let cGrid = buildGrid(restaurants);
 //         restCards.innerHTML += cardGrid;
 // };  
@@ -104,4 +139,12 @@ restaurants = get("restaurants.json")
 //     xhrCity.send();
 //     }  
 // }; 
+
+ 
+// return get("cities.json");
+// }).then( (cities) => {
+//     console.log( "this is the array of cities request:", cities);
+// }). catch( (error) => {
+//     console.log("Doh! Failed!", error);
+// });
         
