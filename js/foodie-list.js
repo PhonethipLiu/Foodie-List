@@ -2,42 +2,54 @@
 
 console.log("foodie-list.js is working");
 
-// make XHR request
 
-var restaurant = [];
-let card = {};
+// var restaurants = []; //restaurant.json data goes in this array
+// var cities = [];//cities.json data goes in this array
+// var restCard = document.getElementById("restaurant-cards"); // want the dom restaurant cards to appear here?
 
-function loadRestData (data){
-    // let keys = Object.keys();
-    // keys.forEach( (data) => {
-    //     console.log("what are the keys", keys);
-    //     restaurant.push(data);
-    // });
-    return restaurant;
-}
-console.log("restaurant data filled:", restaurant);
 
-//get data
-card.getRestaurant = () => {
-    return restaurant;
-};
+// // function to get data
 
-// load data xhr
-card.loadRestaurant = () => {
-    return new Promise ( (resolve, reject) => {
-        let xhr = new XMLHttpRequest();
+// function get(url){
+//     return new Promise ( (resolve, reject) => {
+//         var xhr = new XMLHttpRequest();
+//         xhr.open("GET", url);
 
-        xhr.addEventListener("load", function(){
-            let data = JSON.parse(this.responseText);
-            console.log("data is:", data);
-            // loadRestData(data);
-            resolve(data);
-        });
-        xhr.open("GET", "restaurants.json");
-        xhr.send();
-    });
-};
+//         xhr.onload = function() {
+//             if (xhr.status == 200){
+//                 resolve(JSON.parse(xhr.response));
+//             } else {
+//                 reject(Error(xhr.statusText));
+//             }
+//         };
+//         // handles network errors
+//         xhr.onerror = function(){
+//             reject(Error(xhr.statusText));
+//         };
 
-console.log("what is card", restaurant);
+//         //make request
+//         xhr.send();
+//     });    
+// }
 
-module.exports = { card };
+// restaurants = get("restaurants.json")
+//     .then( (restaurants) => {
+//         console.log( "this is what I get when I run the request:", restaurants);
+//         restCard.innerHTML += restaurants ;
+//     }, function(error){
+//         console.log("Doh! Failed!", error);
+//     });
+
+
+// var promise = get("restaurants.json");
+//     promise.then( (restaurants) => {
+//         console.log(restaurants);
+//         return get("cities.json") ;
+//     }).then( (cities) => {
+//         console.log(cities);
+//     }).catch(function(error){
+//         console.log(error);
+// });
+
+// console.log("what is card", restaurant);
+
