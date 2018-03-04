@@ -7,32 +7,43 @@ var dataCity = require("./cities");
 
 
 
-function restCards(data){
-    return`
-    <div class="card col-4" id="rest-${data.id}>
-        <div class="card-header"><b>City:</b> ${data.city_id}</div>
-        <div class="card-body">
-        <h5 class="card-title">${data.restaurant}</h5>
-        <p><b>Rating:</b> ${data.my_rating}</p>
-        <p class="card-text"> Restaurants.trip_purpose</p> 
-        <small class="text-muted">Date visited: ${data.date_visited}</small> </div>
-    </div>`;
-}
+// function restCards(data){
+//     return`
+//     <div class="card col-4" id="rest-${data.id}>
+//         <div class="card-header"><b>City:</b> ${data.city_id}</div>
+//         <div class="card-body">
+//         <h5 class="card-title">${data.restaurant}</h5>
+//         <p><b>Rating:</b> ${data.my_rating}</p>
+//         <p class="card-text"> Restaurants.trip_purpose</p> 
+//         <small class="text-muted">Date visited: ${data.date_visited}</small> </div>
+//     </div>`;
+// }
 
 
-// function to display data XHR 
-function displayRestaurants() {
+// // function to display data XHR 
+// function displayRestaurants() {
+//     dataRest = document.getElementById("restaurant-cards");
 
-    dataRest.restaurants.then ( ()=>{
-
-        for(let i = 0 ; i <dataRest.length; i++){
+//         for(let i = 0 ; i <restaurants.length; i++){
         
-            document.getElementById("restaurant-cards").innerHTML = `
-            <h1 class="rest-list">Restaurants I have visited(${dataRest.length})</h1>
-            ${dataRest.map(restCards).join('')}`;
-        } 
-    });
-}
+//             dataRest.innerHTML += `
+//             <h1 class="rest-list">Restaurants I have visited(${restaurants.length})</h1>
+//             ${restaurants.map(restCards).join('')}`;
+//         } 
+    
+// }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -3,6 +3,7 @@
 console.log("select-city js working");
 
 var cities = [];//cities.json data goes in this array
+var cityList = document.getElementById("restaurants");
 
 function get(url){
     return new Promise ( (resolve, reject) => {
@@ -28,6 +29,7 @@ function get(url){
 
 cities = get("cities.json")
     .then( (cities) => {
+        cityList.innerHTML += cities.cities[6].city;
         console.log( "this is what I get when I run the request:", cities);
     }, function (error){
         console.log("Doh! Failed!", error);
