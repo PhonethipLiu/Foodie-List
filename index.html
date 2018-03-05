@@ -20,8 +20,9 @@
     <header class="nav-wrapper">
         <nav class="navbar fixed-top">
             <a class="navbar-brand" href="#">Foodies</a>
+            <h1>Favorite eateries in a cities you visited</h1>
         </nav>
-        <h1>Favorite eateries in a cities you visited</h1>
+        
     </header>
 
     <main class="main-container">
@@ -29,23 +30,25 @@
         <section class="input-area">
 
             <div class="dropdown"> <!-- Dropdown menu options for cities -->
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onchange="selectCity(this.value)">
-                    Select a city
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#" value="Itupeva" >Itupeva</a>
-                        <a class="dropdown-item" href="#" value="Changsheng" >Changsheng</a>
-                        <a class="dropdown-item" href="#" value="Mingelchaur" >Mingelchaur</a>
-                        <a class="dropdown-item" href="#" value="Bigoudine" >Bigoudine</a>
-                        <a class="dropdown-item" href="#" value="La Soledad" >La Soledad</a>
-                        <a class="dropdown-item" href="#" value="Shengshan" >Shengshan</a>
-                        <a class="dropdown-item" href="#" value="Nashville" >Nashville</a>
-                        <a class="dropdown-item" href="#" value="Rabat" >Rabat</a>
-                        <a class="dropdown-item" href="#" value="Hamilton" >Hamilton</a>
-                        <a class="dropdown-item" href="#" value="El Llano" >El Llano</a>
-                        <a class="dropdown-item" href="#" value="Longwu" >Longwu</a>
-                    </div>
-                </div> <!-- end dropdown menu options -->
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onchange="selectCity">
+                Select a city
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#" value="Itupeva" >Itupeva</a>
+                    <a class="dropdown-item" href="#" value="Changsheng" >Changsheng</a>
+                    <a class="dropdown-item" href="#" value="Mingelchaur" >Mingelchaur</a>
+                    <a class="dropdown-item" href="#" value="Bigoudine" >Bigoudine</a>
+                    <a class="dropdown-item" href="#" value="La Soledad" >La Soledad</a>
+                    <a class="dropdown-item" href="#" value="Shengshan" >Shengshan</a>
+                    <a class="dropdown-item" href="#" value="Nashville" >Nashville</a>
+                    <a class="dropdown-item" href="#" value="Rabat" >Rabat</a>
+                    <a class="dropdown-item" href="#" value="Hamilton" >Hamilton</a>
+                    <a class="dropdown-item" href="#" value="El Llano" >El Llano</a>
+                    <a class="dropdown-item" href="#" value="Longwu" >Longwu</a>
+                </div><!-- end dropdown menu options -->
+            <button type="button" class="btn btn-outline-info">Add new restaurants</button>
+            <button type="button" class="btn btn-outline-info">Show all restaurants</button>
+            </div>
             
         </section>
 
