@@ -1,0 +1,42 @@
+$font-dislay: 'Lily Script One', cursive;
+$font-sans: 'Raleway', sans-serif;
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-brand {
+    font-family: 'Lily Script One', cursive;
+    font-size: 100px;
+    padding: 0 24px;
+    background-color: rgba(240, 197, 90, 0.685);
+}
+
+h1 {
+   font-family: 'Raleway', sans-serif;
+   font-size: 1em;
+   text-align: right;
+}
+
+.main-container {
+    margin: 8em 3em 4em 3em;
+    padding: 2em;
+    height: 100%; 
+}
+
+.card {
+    margin: 1em 2em 1em 0;
+    padding: 0;
+}
+
+div.card-header {
+    padding: .5em 2em;;
+    width: 100% !important;
+}
+
+div.card-body{
+    padding: 2em;
+}
