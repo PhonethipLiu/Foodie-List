@@ -5,6 +5,7 @@ console.log("foodie-list.js is working");
 
 var restaurants = []; //restaurant.json data goes in this array
 var restCard = document.getElementById("restaurant-cards"); // want the dom restaurant cards to appear here
+var restData;
 
 // function to get data
 
@@ -32,6 +33,14 @@ function get(url){
 
 
 
+restaurants = get("restaurants.json")
+    .then( (restaurants) => {
+            restCard.innerHTML += restaurants.restaurants;
+        console.log( "this is what I get:", restaurants);
+    }, function (error){
+        console.log("Doh! Failed!", error);
+});
+   
 function cardTemplate(card){
     return `<div class="card col-4" id="rest-${card.id}>
     <div class="card-header"><b>City:</b> ${card.city_id}</div>
@@ -42,17 +51,6 @@ function cardTemplate(card){
     <small class="text-muted">Date visited: ${card.date_visited}</small> </div>
     </div>`;
 }
-
-
-restaurants = get("restaurants.json")
-    .then( (restaurants) => {
-            restCard.innerHTML += restaurants.restaurants;
-        console.log( "this is what I get:", restaurants);
-    }, function (error){
-        console.log("Doh! Failed!", error);
-});
-   
-
 
     
 
