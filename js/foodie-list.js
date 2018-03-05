@@ -3,12 +3,11 @@
 console.log("foodie-list.js is working");
 
 
-var Restaurants = {}; //restaurant.json data goes in this array
-let restItems = [];
-
-var restaurants = []; //restaurant.json data goes in this array
+var restaurants = {}; 
+var restItems = {};
+var card = []; 
 var restCard = document.getElementById("restaurant-cards"); // want the dom restaurant cards to appear here
-var restData;
+var data;
 
 // function to get data
 
@@ -28,22 +27,25 @@ function get(url){
         xhr.onerror = function(){
             reject(Error(xhr.statusText));
         };
-
         //make request
         xhr.send();
     });    
 }
 
- restaurants = get("restaurants.json")
-    .then( (restaurants) => {
-        restCard.innerHTML += restaurants.restaurants;
-        console.log( "this is what I get when I run the request:", restaurants);
-    }, function(error){
-        console.log("Doh! Failed!", error);
-    });
 
+restaurants = get("restaurants.json")
+    .then( (restaurants) => {
+        for(data in restaurants) {
+        restCard.innerHTML += restaurants.cardTemplate(card);
+        console.log( "this is what I get when I run the request:", restaurants);
+        } function(error)
+        console.log("Doh! Failed!", error);
+    }
+});
+
+var restCard = card.restaurants;
 function cardTemplate(card){
-    var restCard = card.restaurants;
+    
     
     for(var i = 0; i < restCard.length; i++){
         var list = `<div class="card col-4" id="rest-${restCard[i].id}>
@@ -59,15 +61,9 @@ function cardTemplate(card){
     }   
 }
 
-let parseData = (data) => {
-    data.cards.forEach( (element) => {
-        restItems.push(element);
-    });
-    console.log("rest items:", restItems);
-    return restItems;
-};
 
-module.exports = { Restaurants };
+
+module.exports = { restaurants };
 
 // restaurants = get("restaurants.json")
 //     .then( (restaurants) => {
@@ -79,7 +75,13 @@ module.exports = { Restaurants };
 // });
 
     
-
+// let parseData = (data) => {
+//     data.cards.forEach( (element) => {
+//         restItems.push(element);
+//     });
+//     console.log("rest items:", restItems);
+//     return restItems;
+// };
 
 
 /* ---------------Extra thoughts --------------- */
